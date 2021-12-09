@@ -1,0 +1,43 @@
+
+- NASM Map file ---------------------------------------------------------------
+
+Source file:  jmpdapn.asm
+Output file:  jmpdapn.bin
+
+-- Symbols --------------------------------------------------------------------
+
+---- No Section ---------------------------------------------------------------
+
+Value     Name
+00900000  LFBBASE
+00000105  VBEMODE
+00000FF0  CYLS
+00000FF1  LEDS
+00000FF2  VMODE
+00000FF4  SCRNX
+00000FF6  SCRNY
+00000FF8  VRAM
+
+
+---- Section .CODE ------------------------------------------------------------
+
+Real              Virtual           Name
+            C200              C200  _START
+            C203              C203  GDT
+            C22B              C22B  GDT_PTR
+            C231              C231  BEGIN
+            C2A4              C2A4  SCRN640
+            C2C8              C2C8  PROMODE
+
+---- Section .CSEG ------------------------------------------------------------
+
+Real              Virtual           Name
+            C2E8              C2E8  FLUSH
+            C330              C330  KERNEL_INIT
+            C34D              C34D  SKIP
+            C357              C357  RD_DISK_M_32
+            C38C              C38C  RD_DISK_M_32.NOT_READY
+            C3A5              C3A5  RD_DISK_M_32.GO_ON_READ
+            C3B0              C3B0  MEMCPY
+            C3C0              C3C0  KERNELC
+

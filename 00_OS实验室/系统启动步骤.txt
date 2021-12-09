@@ -1,0 +1,9 @@
+1.MBR文件仍然是原先的MBRB.ASM 文件，大小是512字节
+dd if=mbrb.bin of=2g.img bs=512 count=1
+2.PBR文件是FAT32.ASm编译后大小是1024个字节，占用两个扇区，前面512字节在63扇区
+后面512字节在66扇区，这个要分开写最好用WINHEX来写
+3.freeldr.sys
+这个文件是LOADER.BIN+bootpack.hrb合并得到的。
+copy /b freeldr.bin+bootpack.hrb freeldr.sys
+如果是用物理机的话直接将FREELDR.SYS 拷贝到2g的FAT32分区里就可以了。
+如果是虚拟机的硬盘镜像文件就用WINIMAGE打开后把这个文件加入到2G.IMG里就可以
